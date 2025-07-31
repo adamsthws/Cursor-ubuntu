@@ -2,7 +2,9 @@
 
 # Check Ubuntu version and exit if not 24.04
 UBUNTU_VERSION=$(lsb_release -rs 2>/dev/null)
-if [ "$UBUNTU_VERSION" != "24.04" ]; then
+DISTRIB_RELEASE=$(grep DISTRIB_RELEASE /etc/upstream-release/lsb-release | cut -d= -f2)
+# Check if the script is running on a distro based on Ubuntu 24.04
+if [ "$DISTRIB_RELEASE" != "24.04" ]; then
     echo "-------------------------------------"
     echo "==============================="
     echo "❌ This script is for Ubuntu 24.04 only."
