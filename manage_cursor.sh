@@ -18,7 +18,7 @@ if [ "$DISTRIB_RELEASE" != "24.04" ]; then
 fi
 
 # --- Global Variables ---
-CURSOR_EXTRACT_DIR="/opt/Cursor"                   # Where the AppImage is extracted
+CURSOR_EXTRACT_DIR=~/.local/bin/cursor             # Where the AppImage is extracted
 ICON_FILENAME_ON_DISK="cursor-icon.png"            # Main icon name
 ALT_ICON_FILENAME_ON_DISK="cursor-black-icon.png"  # Secondary icon (dark variant)
 ICON_PATH="${CURSOR_EXTRACT_DIR}/${ICON_FILENAME_ON_DISK}"
@@ -219,7 +219,7 @@ installCursor() {
     echo "🖥️ Creating .desktop entry for Cursor..."
     sudo tee "$DESKTOP_ENTRY_PATH" >/dev/null <<EOL
 [Desktop Entry]
-Name=Cursor AI IDE
+Name=Cursor
 Exec=${EXECUTABLE_PATH} --no-sandbox
 Icon=${ICON_PATH}
 Type=Application
